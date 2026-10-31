@@ -69,3 +69,4 @@ while True:
         for expense in expenses:
             used_categories.add(expense["category"])
         print("Used categories:", sorted(used_categories))
+        

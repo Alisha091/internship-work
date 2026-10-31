@@ -39,3 +39,14 @@ python expense_tracker.py
 - Summary overall total and total category
 - show used categories
 - Rejects blank categories and invalid choices
+
+## Day 4: Modular Expense Tracker
+
+### Run
+
+python main.py
+
+### Structure
+
+- tracker.py: expense logic (validation, totals, categories), no input/print
+- main.py: menu and user interaction
