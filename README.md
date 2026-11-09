@@ -50,3 +50,36 @@ python main.py
 
 - tracker.py: expense logic (validation, totals, categories), no input/print
 - main.py: menu and user interaction
+
+## Day 5: JSON Persistence
+
+### Run
+
+python main.py
+
+### Data file
+
+Expenses are stored in expenses.json as a list of records:
+[{"description": "Lunch", "amount": 850.0, "category": "Food"}]
+
+- A missing file starts an empty tracker
+- Malformed JSON or permission errors show a clear warning
+- Files: storage.py (load/save), tracker.py (logic), main.py (menu)
+
+## Day 6: Comprehensions and Built-ins
+
+### Run
+
+python transactions_report.py
+
+### Where things are used
+
+- all(): has_required_fields, has_positive_amounts
+- any(): has_high_value (configurable HIGH_VALUE_THRESHOLD)
+- List comprehension: filter_by_category, clean_descriptions
+- Set comprehension: unique_categories
+- Dict comprehension: totals_by_category
+- sorted() with key and reverse: sort_by_amount, sort_by_description (original list unchanged)
+- enumerate(): numbered ranking in main()
+- zip(): compare_budgets (category names with budgets)
+- assert checks: run_assertions
