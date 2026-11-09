@@ -1,6 +1,9 @@
-"""Command-line menu for the expense tracker."""
+"""Command-line menu for the expense tracker with JSON persistence."""
 
+import storage
 import tracker
+
+DATA_FILE = "expenses.json"
 
 
 def show_menu():
@@ -55,9 +58,23 @@ def show_summary(expenses):
         print(f"  {name}: {amount:.2f}")
 
 
+def save_and_report(expenses):
+    """Save expenses to the data file and print a message if it fails."""
+    error = storage.save_expenses(DATA_FILE, expenses)
+    if error:
+        print("Warning:", error)
+    else:
+        print(f"Saved to {DATA_FILE}.")
+
+
 def main():
-    """Run the menu loop until the user chooses Exit."""
-    expenses = []
+    """Load saved expenses, then run the menu loop until Exit."""
+    expenses, error = storage.load_expenses(DATA_FILE)
+    if error:
+        print("Warning:", error)
+    else:
+        print(f"Loaded {len(expenses)} expense(s) from {DATA_FILE}.")
+
     while True:
         show_menu()
         choice = input("Choose an option (1-5): ").strip()
@@ -66,7 +83,10 @@ def main():
             print("Goodbye!")
             break
         elif choice == "1":
-            expenses = add_expense_flow(expenses)
+            updated = add_expense_flow(expenses)
+            if len(updated) != len(expenses):
+                expenses = updated
+                save_and_report(expenses)
         elif choice == "2":
             list_expenses(expenses)
         elif choice == "3":

@@ -1,0 +1,22 @@
+[
+  {
+    "description": "Lunch",
+    "amount": 850.0,
+    "category": "Food"
+  },
+  {
+    "description": "Bus",
+    "amount": 100.0,
+    "category": "Transport"
+  },
+  {
+    "description": "Electricity",
+    "amount": 3000.0,
+    "category": "Bills"
+  },
+  {
+    "description": "pizza",
+    "amount": 500.0,
+    "category": "Food"
+  }
+]
