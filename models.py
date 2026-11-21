@@ -73,7 +73,7 @@ class Account:
     def calculate_balance(self) -> float:
         """Return the balance calculated from all transactions."""
         return sum(t.amount if t.transaction_type == "deposit" else -t.amount
-                   for t in self.transactions)
+                for t in self.transactions)
 
     def add_transaction(self, transaction: Transaction) -> Transaction:
         """Store a valid transaction; reject withdrawals above the balance."""
