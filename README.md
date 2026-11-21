@@ -83,3 +83,22 @@ python transactions_report.py
 - enumerate(): numbered ranking in main()
 - zip(): compare_budgets (category names with budgets)
 - assert checks: run_assertions
+
+## Day 7: OOP Banking Model
+
+### Run
+
+python demo.py
+
+### Classes
+
+- User: ID, name, email; rejects empty values
+- Transaction: ID, type (deposit/withdrawal), amount, description
+- Account: linked to a User; protected balance (\_balance) and private history (\_\_transactions)
+
+### Design choices
+
+- Balance and history change only through deposit(), withdraw() and transfer_to()
+- get_transactions() returns a copy, so callers cannot modify the history
+- Zero/negative amounts and insufficient funds raise ValueError and leave the account unchanged
+- **str** and **repr** show only a masked account number
